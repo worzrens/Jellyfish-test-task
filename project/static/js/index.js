@@ -2,10 +2,20 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { checkForUpdates, sendMessage } from './socket';
 
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import InputGroup from 'react-bootstrap/InputGroup';
 import FormControl from 'react-bootstrap/FormControl';
 
+const divStyle = {
+  padding: "5px",
+  borderRadius: '10px',
+  margin: '5px',
+  border: '1.5px solid black',
+  width: '100%'
+};
 
 class Messages extends React.Component {
     constructor(props) {
@@ -36,42 +46,55 @@ class Messages extends React.Component {
 
     getMessageHistory() {
         return this.props.messages.map( (message) =>
-            <li>
-                Message: {message.message},
-                Author: {message.username},
+            <div style={divStyle}>
+                Message: {message.message},<br />
+                Author: {message.username},<br />
                 Time: {message.time}
-            </li>
+            </div>
         )
     }
 
     getNewMessages() {
         return this.state.new_messages.map( (message) =>
-            <li>
-                Message: {message.message},
-                Author: {message.username},
+            <div style={divStyle}>
+                Message: {message.message},<br />
+                Author: {message.username},<br />
                 Time: {message.time}
-            </li>
+            </div>
         )
     }
 
     render() {
-        return [
-            <ul>
-                {this.getMessageHistory()}
-                {this.getNewMessages()}
-            </ul>,
-                <InputGroup>
-                    <FormControl
-                      placeholder="Write a message"
-                      aria-label="Write a message"
-                      value={this.state.my_message}
-                      onChange={this.changeMyMessage}
-                    />
-                    <InputGroup.Append>
-                      <Button variant="outline-primary" onClick={this.sendOnClick}>Send</Button>
-                    </InputGroup.Append>
-                  </InputGroup>
-        ];
+        return (
+            <Container>
+                <Row>
+                    <Col></Col>
+                    <Col>{this.getMessageHistory()}</Col>
+                    <Col></Col>
+                </Row>
+                <Row>
+                    <Col></Col>
+                    <Col>{this.getNewMessages()}</Col>
+                    <Col></Col>
+                </Row>
+                <Row>
+                    <Col></Col>
+                    <Col>
+                    <InputGroup>
+                        <FormControl
+                          placeholder="Write a message"
+                          aria-label="Write a message"
+                          value={this.state.my_message}
+                          onChange={this.changeMyMessage}
+                        />
+                        <InputGroup.Append>
+                          <Button variant="outline-primary" onClick={this.sendOnClick}>Send</Button>
+                        </InputGroup.Append>
+                    </InputGroup>
+                    </Col>
+                    <Col></Col>
+             </Row>
+            </Container>)
     }
 };
 
