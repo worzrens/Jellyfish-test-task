@@ -36,7 +36,7 @@ class Users(db.Model, UserMixin):
 class Messages(db.Model):
     id = db.Column('message_id', db.Integer, primary_key=True)
     message = db.Column('message', db.String(1000))
-    user_id = db.Column('user_id', db.Integer)
+    username = db.Column('user_id', db.String(30))
     timestamp = db.Column('sent_time', db.TIMESTAMP)
 
 
@@ -44,11 +44,11 @@ class Messages(db.Model):
 def handle_message_sent(msg):
     print(msg)
     timestamp = str(datetime.datetime.now())
-    message = Messages(message=msg["message"], user_id=msg["user_id"], timestamp=timestamp)
+    message = Messages(message=msg["message"], username=msg["username"], timestamp=timestamp)
     db.session.add(message)
     db.session.commit()
 
-    emit('response', {"message": msg['message'], "user_id": msg['user_id'], "time": timestamp}, broadcast=True)
+    emit('response', {"message": msg['message'], "username": msg['username'], "time": timestamp}, broadcast=True)
 
 
 @app.route("/")

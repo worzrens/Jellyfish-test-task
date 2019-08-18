@@ -12,18 +12,18 @@ $(document).ready(function() {
 		socket.send('User has connected!');
 	});
 	socket.on('response', function(msg) {
-		$("#messages").append('<li> Message: '+msg.message+', Author: '+ msg.user_id +', Time: '+ msg.time +'</li>');
+		$("#messages").append('<li> Message: '+msg.message+', Author: '+ msg.username +', Time: '+ msg.time +'</li>');
 		console.log('Received message');
 	});
 	$('#sendbutton').on('click', function() {
-		socket.emit("message_sent", {"message":$('#myMessage').val(), "user_id":1});
+		socket.emit("message_sent", {"message":$('#myMessage').val(), "username": "{{ current_user.username }}" });
 		$('#myMessage').val('');
 	});
 });
 </script>
 <ul id="messages">
 {% for message in messages %}
-    <li> Message: {{message.message}}, Author: {{message.user_id}}, Time: {{message.timestamp}} </li>
+    <li> Message: {{message.message}}, Author: {{message.username}}, Time: {{message.timestamp}} </li>
 {% endfor %}
 </ul>
 <input type="text" id="myMessage">
