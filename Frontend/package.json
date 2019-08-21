@@ -1,0 +1,40 @@
+{
+  "name": "jellyfish_test_task",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/worzrens/Jellyfish-test-task.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/worzrens/Jellyfish-test-task/issues"
+  },
+  "homepage": "https://github.com/worzrens/Jellyfish-test-task#readme",
+  "dependencies": {
+    "@babel/preset-react": "^7.0.0",
+    "@material-ui/core": "^4.3.2",
+    "babel-loader": "^8.0.6",
+    "babel-preset-es2017": "^6.24.1",
+    "css-loader": "^3.2.0",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "react-timestamp": "^5.1.0",
+    "socket.io-client": "^2.2.0",
+    "style-loader": "^1.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "babel-preset-latest": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "webpack": "^4.39.2",
+    "webpack-cli": "^3.3.7"
+  }
+}
