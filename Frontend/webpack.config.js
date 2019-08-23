@@ -1,10 +1,10 @@
 var webpack = require('webpack');
 const path = require('path');
- 
+
 module.exports = {
-  entry: ['./js/index.js'],
+  entry: ['./js_sources/index.js'],
   output: {
-    path: path.resolve('./shared/static/js/'),
+    path: '/app/shared/static/js',
     filename: 'index_bundle.js'
   },
   module: {

@@ -11,13 +11,18 @@ services:
 
   front:
     build: Frontend
-    restart: always
-
+    volumes:
+     - ./Frontend/shared:/app/shared/
+     
   back:
     build: Backend
     restart: always
     ports:
-     - 5003:5003
+     - "5000:5000"
     environment:
      - SECRET
      - PSQL_LINK
+    volumes:
+     - ./Frontend/shared/templates:/backend/templates
+     - ./Frontend/shared/static:/backend/static
+

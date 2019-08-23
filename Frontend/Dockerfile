@@ -1,7 +1,13 @@
 FROM node:7
 
-RUN npm install webpack -g
+WORKDIR /app
+
+COPY ./ /app
+
+RUN npm install webpack webpack-cli -g
 
 RUN npm i
 
-CMD ["webpack"]
+RUN webpack
+
+CMD ["sh"]

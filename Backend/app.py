@@ -6,7 +6,7 @@ from models import *
 
 
 app = Flask(__name__)
-app.config.from_pyfile('app_config.cfg')
+app.config.from_pyfile('app_config.py')
 db.init_app(app)
 
 
@@ -77,4 +77,4 @@ if __name__ == '__main__':
     with app.app_context():
         db.create_all()
     login_manager.init_app(app)
-    socketio.run(app)
+    socketio.run(app, host='0.0.0.0')

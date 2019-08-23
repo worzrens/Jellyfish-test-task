@@ -3,9 +3,6 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/worzrens/Jellyfish-test-task.git"
@@ -27,7 +24,9 @@
     "react-dom": "^16.9.0",
     "react-timestamp": "^5.1.0",
     "socket.io-client": "^2.2.0",
-    "style-loader": "^1.0.0"
+    "style-loader": "^1.0.0",
+    "webpack": "^4.39.2",
+    "webpack-cli": "^3.3.7"
   },
   "devDependencies": {
     "@babel/core": "^7.5.5",
