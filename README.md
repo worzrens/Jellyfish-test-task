@@ -1,4 +1,4 @@
-##Test app for jellyfish
+## Test app for jellyfish
 
 Make sure that env variables are set, then run **docker-compose up --build**
 
