@@ -1,4 +1,4 @@
-## Test app for jellyfish
+## Simple Chat with sockets on Flask and React
 
 Make sure that env variables are set, then run **docker-compose up --build**
 
